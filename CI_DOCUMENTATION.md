@@ -43,7 +43,17 @@ The `actions/setup-python` step installs the Python version requested by the mat
 
 The runner updates pip and installs the packages declared in `requirements.txt`. The dependency list contains pytest and Ruff.
 
-### Stage 4 — Lint
+### Stage 4 — Build/syntax check
+
+The command is:
+
+\`\`\`bash
+python -m compileall -q app.py tests
+\`\`\`
+
+This step compiles the application's Python source and test modules to catch syntax/compilation errors before running style checks. A non-zero exit code fails the job.
+
+### Stage 5 — Lint
 
 The command is:
 
@@ -53,7 +63,7 @@ python -m ruff check .
 
 Ruff checks Python source and test files according to `ruff.toml`. Any lint error returns a non-zero exit code, causing the workflow job to fail.
 
-### Stage 5 — Test and generate report
+### Stage 6 — Test and generate report
 
 The command is:
 
@@ -63,13 +73,13 @@ python -m pytest --junitxml=test-results.xml
 
 pytest discovers tests in the `tests` directory. It returns a non-zero exit code when tests fail and writes test results to JUnit XML when it reaches report generation.
 
-### Stage 6 — Publish the report
+### Stage 7 — Publish the report
 
 The `actions/upload-artifact` step stores `test-results.xml` as an artifact named for its Python version. The step uses `if: always()` so the upload is attempted even if an earlier step failed. If tests fail before writing the XML report, GitHub displays a warning because the report file may not exist.
 
 ## 5. Why the pipeline fails on errors
 
-GitHub Actions treats a run step that exits with a non-zero code as failed by default. The lint and test steps do not use `continue-on-error`, so a Ruff finding or a failing pytest assertion makes the matrix job fail. Test reporting is separate from the test exit code and does not turn a failed test run into a successful one.
+GitHub Actions treats a run step that exits with a non-zero code as failed by default. The build, lint, and test steps do not use `continue-on-error`, so a compile error, Ruff finding, or failing pytest assertion makes the matrix job fail. Test reporting is separate from the test exit code and does not turn a failed test run into a successful one.
 
 With a three-version matrix, each Python version has an independent job. The overall workflow is successful only when the required matrix jobs are successful; a failure in a version's lint or test steps remains visible.
 
@@ -150,7 +160,7 @@ The repository's current test suite covers:
 - **Dependency consistency:** both local and CI runs install from `requirements.txt`.
 - **Repeatable tests:** pytest tests use fixed inputs and do not depend on network services or external credentials.
 - **Version compatibility:** a matrix checks the same code across multiple supported Python versions.
-- **Failure visibility:** lint and test commands retain their non-zero exit codes, so errors are not silently ignored.
+- **Failure visibility:** build, lint, and test commands retain their non-zero exit codes, so errors are not silently ignored.
 - **Report availability:** the artifact step runs with `if: always()` and warns if no report was created.
 
 These are the main setup considerations addressed by the project. Document any additional issues observed during your actual run instead of reporting hypothetical problems as if they occurred.
