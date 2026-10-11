@@ -14,7 +14,7 @@ The objective is to integrate a Continuous Integration (CI) pipeline into a Pyth
 
 The workflow has three triggers:
 
-- `push` to `main`
+- `push` to any branch
 - `pull_request` targeting `main`
 - `workflow_dispatch` for manual runs from the Actions page
 
@@ -115,7 +115,7 @@ python -m pytest --junitxml=test-results.xml
 
 1. Make a small change, for example update a docstring in `app.py`.
 2. Save the change and commit it.
-3. Push to the `main` branch, or open a pull request targeting `main`.
+3. Push the commit to any branch, or open a pull request targeting `main`.
 4. Open the repository on GitHub and select **Actions**.
 5. Open the latest **Python CI** run.
 6. Inspect the job for each Python version. Each step can be expanded to see its logs.
@@ -169,4 +169,4 @@ Only tick items after you have verified them in your local environment or in Git
 
 ## 12. Conclusion
 
-This project demonstrates how a CI pipeline improves feedback and consistency by automatically linting code, running tests, and preserving a test report. It runs on every push and pull request targeting the main branch, with an optional manual trigger. The lint and test steps can fail the build, providing a repeatable quality gate for future changes.
+This project demonstrates how a CI pipeline improves feedback and consistency by automatically linting code, running tests, and preserving a test report. It runs on every branch push and on pull requests targeting the main branch, with an optional manual trigger. The lint and test steps can fail the build, providing a repeatable quality gate for future changes.
