@@ -31,6 +31,9 @@ jobs:
       - name: Install dependencies
         run: python -m pip install --upgrade pip && python -m pip install -r requirements.txt
 
+      - name: Build check (compile Python files)
+        run: python -m compileall -q app.py tests
+
       - name: Lint with Ruff
         run: python -m ruff check .
 
