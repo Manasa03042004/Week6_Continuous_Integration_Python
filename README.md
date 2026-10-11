@@ -21,20 +21,20 @@ This repository contains a small calculator module. The application itself is in
 
 ```text
 Week6_Continuous_Integration_Python/
-├── .github/
-│   └── workflows/
-│       └── ci.yml
-├── tests/
-│   └── test_app.py
-├── .gitignore
+├── .github/workflows/ci.yml
+├── tests/test_app.py
 ├── app.py
-├── pytest.ini
 ├── requirements.txt
+├── pytest.ini
 ├── ruff.toml
+├── .gitignore
+├── README.md
 ├── CI_DOCUMENTATION.md
 ├── CI_VERIFICATION.md
-└── README.md
+└── CHANGELOG.md
 ```
+
+The submission ZIP additionally includes the detailed Word project report and JUnit XML snapshots from the verified CI run under `reports/`.
 
 ## Run locally (Windows PowerShell)
 
