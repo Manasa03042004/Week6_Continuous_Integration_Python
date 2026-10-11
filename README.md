@@ -10,12 +10,12 @@ This repository contains a small calculator module. The application itself is in
 
 - Runs automatically on every branch push and on pull requests targeting `main`.
 - Supports manual execution with **Actions → Python CI → Run workflow**.
-- Checks code quality with Ruff.
+- Compiles Python source as a build/syntax check and checks code quality with Ruff.
 - Runs automated tests with pytest.
 - Generates a JUnit XML test report.
 - Uploads the test report as a downloadable Actions artifact even when checks fail, if a report was produced.
 - Executes the workflow on Python 3.10, 3.11, and 3.12.
-- Fails the job if linting or tests fail.
+- Fails the job if compilation, linting, or tests fail.
 
 ## Repository structure
 
