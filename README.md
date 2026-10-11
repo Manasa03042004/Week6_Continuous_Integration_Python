@@ -8,7 +8,7 @@ This repository contains a small calculator module. The application itself is in
 
 ### CI capabilities
 
-- Runs automatically on pushes to `main` and pull requests targeting `main`.
+- Runs automatically on every branch push and on pull requests targeting `main`.
 - Supports manual execution with **Actions → Python CI → Run workflow**.
 - Checks code quality with Ruff.
 - Runs automated tests with pytest.
@@ -64,10 +64,10 @@ On macOS/Linux, create and activate a virtual environment using `python3 -m venv
 
 ## CI status
 
-The workflow definition is committed at `.github/workflows/ci.yml`. Use the Actions tab to confirm the latest run's status after each push. The documentation deliberately does not hard-code a success claim; record the result shown by GitHub for the actual run.
+The workflow definition is committed at `.github/workflows/ci.yml`. Use the Actions tab to inspect the latest run's status after each push. `CI_VERIFICATION.md` records the successful verification run and the test summary.
 
 ## Learning outcomes
 
 This project demonstrates continuous integration, automated quality checks, repeatable Python environments, test reporting, matrix testing across Python versions, and troubleshooting through CI logs.
 
-See [CI_DOCUMENTATION.md](CI_DOCUMENTATION.md) for the full setup, workflow explanation, verification checklist, and troubleshooting guide.
+The supplied project ZIP also includes copies of the generated JUnit XML reports under `reports/`. Future runs create fresh reports available from the Actions run's **Artifacts** section. See [CI_DOCUMENTATION.md](CI_DOCUMENTATION.md) for the setup, workflow explanation, verification checklist, and troubleshooting guide.
