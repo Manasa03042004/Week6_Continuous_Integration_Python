@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyd
+.Python
+.venv/
+venv/
+env/
+build/
+dist/
+*.egg-info/
+
+# Test and lint artifacts
+.pytest_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+test-results.xml
+junit.xml
+
+# Editors and OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
