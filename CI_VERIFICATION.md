@@ -2,11 +2,11 @@
 
 Repository: https://github.com/Manasa03042004/Week6_Continuous_Integration_Python
 
-Final recorded workflow run: https://github.com/Manasa03042004/Week6_Continuous_Integration_Python/actions/runs/38144660843
+Verified workflow run: https://github.com/Manasa03042004/Week6_Continuous_Integration_Python/actions/runs/38144782869
 
 ## Verified result
 
-The GitHub Actions run completed successfully on 11 October 2026 after the workflow was updated to current Node.js 24-compatible action releases.
+The GitHub Actions run completed successfully on 11 October 2026 with the Node.js 24-compatible official action versions and the workflow configured to validate pushes to every branch.
 
 | Matrix job | Ruff lint | pytest | Report artifact | Job result |
 |---|---|---|---|---|
@@ -18,8 +18,8 @@ The workflow runs Ruff, executes pytest while generating `test-results.xml`, and
 
 ## How to inspect the evidence
 
-1. Open the [final GitHub Actions run](https://github.com/Manasa03042004/Week6_Continuous_Integration_Python/actions/runs/38144660843).
+1. Open the [verified GitHub Actions run](https://github.com/Manasa03042004/Week6_Continuous_Integration_Python/actions/runs/38144782869).
 2. Expand each Python matrix job and inspect the Ruff and pytest step logs.
 3. Under **Artifacts**, download the test report for each Python version and open `test-results.xml`.
 
-This record reflects the GitHub Actions results for the linked workflow run. It is not a substitute for rerunning the pipeline after future code changes.
+The project ZIP also includes copies of the three generated XML reports in the `reports/` folder. This record reflects the results for the linked workflow run and is not a substitute for rerunning the pipeline after future code changes.
