@@ -1,6 +1,6 @@
 # Week 6 — Integrating Continuous Integration (CI) in Python Projects
 
-A beginner-friendly Python project demonstrating how to use **GitHub Actions** to automate linting, testing, and test-report publication on every push and pull request targeting `main`.
+A beginner-friendly Python project demonstrating how to use **GitHub Actions** to automate linting, testing, and test-report publication on every branch push and on pull requests targeting `main`.
 
 ## Project overview
 
@@ -32,6 +32,7 @@ Week6_Continuous_Integration_Python/
 ├── requirements.txt
 ├── ruff.toml
 ├── CI_DOCUMENTATION.md
+├── CI_VERIFICATION.md
 └── README.md
 ```
 
